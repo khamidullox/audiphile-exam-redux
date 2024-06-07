@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-display: swap;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/manrope-v15-latin-regular.woff2") format("woff2");
+}
+/* manrope-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./fonts/manrope-v15-latin-500.woff2") format("woff2");
+}
+/* manrope-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/manrope-v15-latin-700.woff2") format("woff2");
+}
+
+@layer components {
+  html,
+  #root,
+  body {
+    height: 100%;
+  }
+  body {
+    font-family: "Manrope", sans-serif;
+
+    height: 100%;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  .aligen-conatiner {
+    width: 100%;
+    max-width: 1152px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .orange {
+    @apply text-[#D87D4A];
+  }
+  .bg-orange {
+    @apply bg-[#D87D4A];
+  }
+
+}
