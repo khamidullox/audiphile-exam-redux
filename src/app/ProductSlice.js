@@ -43,6 +43,21 @@ export const productSlice = createSlice({
       }
       productSlice.caseReducers.calculatTotal(state);
     },
+    deleteproduct: (state, { payload }) => {
+      let filterDelete = state.products.filter((product) => {
+        return product.id != payload.id;
+      });
+      // state.amout = 0;
+      // state.price = 0;
+      // filterDelete.forEach((element) => {
+      //   state.amout += element.amout;
+      //   state.price += element.price * element.amout;
+      // });
+      state.products = filterDelete;
+      productSlice.caseReducers.calculatTotal(state);
+
+      productSlice.caseReducers.setLocal(state);
+    },
     deleteAll: (state, { payload }) => {
       state.amout = 0;
       state.products = [];
@@ -86,6 +101,7 @@ export const {
   deleteAll,
   incrementAmout,
   decrementAmout,
+  deleteproduct,
 } = productSlice.actions;
 
 export default productSlice.reducer;

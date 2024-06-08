@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { formatPrice } from "../utils/index";
-import { decrementAmout, incrementAmout } from "../app/ProductSlice";
+import {
+  decrementAmout,
+  deleteproduct,
+  incrementAmout,
+} from "../app/ProductSlice";
 function Cart() {
   const { products, price, chekout } = useSelector((state) => state.product);
   let dispetch = useDispatch();
@@ -31,6 +35,10 @@ function Cart() {
               <button
                 onClick={() => {
                   dispetch(decrementAmout(product));
+                  if (product.amout <= 1) {
+                    console.log("delete");
+                    dispetch(deleteproduct(product));
+                  }
                 }}
                 className="hover:orange"
               >
