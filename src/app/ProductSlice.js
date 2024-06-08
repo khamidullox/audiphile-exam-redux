@@ -49,6 +49,20 @@ export const productSlice = createSlice({
       state.price = 0;
       productSlice.caseReducers.setLocal(state);
     },
+    incrementAmout: (state, { payload }) => {
+      let findProduct = state.products.find((item) => {
+        return item.id == payload.id;
+      });
+      findProduct.amout += 1;
+      productSlice.caseReducers.calculatTotal(state);
+    },
+    decrementAmout: (state, { payload }) => {
+      let findProduct = state.products.find((item) => {
+        return item.id == payload.id;
+      });
+      findProduct.amout -= 1;
+      productSlice.caseReducers.calculatTotal(state);
+    },
     calculatTotal: (state) => {
       let price = 0;
       let amout = 0;
@@ -65,7 +79,13 @@ export const productSlice = createSlice({
     },
   },
 });
-export const { addAmout, addProduct, addAmoutProduct, deleteAll } =
-  productSlice.actions;
+export const {
+  addAmout,
+  addProduct,
+  addAmoutProduct,
+  deleteAll,
+  incrementAmout,
+  decrementAmout,
+} = productSlice.actions;
 
 export default productSlice.reducer;

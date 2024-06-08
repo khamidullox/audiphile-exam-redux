@@ -9,7 +9,6 @@ function MainLayout() {
       <Navbar />
       <main className="">
         <Outlet />
-        <FooterAvatar />
       </main>
 
       <Footer />

@@ -1,13 +1,37 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useActionData, useLoaderData } from "react-router-dom";
 import InputForm from "../components/InputForm";
 import Cart from "../components/Cart";
 import CartChekout from "../components/CartChekout";
 import CartPriceText from "../components/CartPriceText";
 import { useSelector } from "react-redux";
 import { formatPrice } from "../utils";
+export let action = async ({ request }) => {
+  let formData = await request.formData();
+  let address = formData.get("address");
+  let name = formData.get("name");
+  let eNumber = formData.get("e-Number");
+  let flexRadioDefault = formData.get("flexRadioDefault");
+  let phone = formData.get("phone");
+  let ePin = formData.get("e-Pin");
+  let code = formData.get("code");
+  let city = formData.get("city");
+  let country = formData.get("country");
+  return {
+    address,
+    name,
+    phone,
+    flexRadioDefault,
+    city,
+    country,
+    code,
+    eNumber,
+    ePin,
+  };
+};
 function Chekout() {
   const { products, price } = useSelector((state) => state.product);
   let shipping = 50;
+
   return (
     <>
       <div className=" aligen-conatiner mt-5">
@@ -144,7 +168,7 @@ function Chekout() {
           <CartPriceText name="SHIPPING">
             <span>{formatPrice(shipping)}</span>
           </CartPriceText>
-          <CartPriceText  name="VAT (INCLUDED)">
+          <CartPriceText name="VAT (INCLUDED)">
             <span>{formatPrice(price * 0.2)}</span>
           </CartPriceText>
           <CartPriceText css="orange" name="GRAND TOTAL">

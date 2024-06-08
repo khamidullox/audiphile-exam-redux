@@ -10,20 +10,6 @@ function NovabrModal() {
   let dispetch = useDispatch();
   return (
     <div className="navbar-end">
-      <button
-        className="bt bg-transparent border-none relative "
-        onClick={() => document.getElementById("my_modal_2").showModal()}
-      >
-        <img src="/assets/shared/desktop/icon-cart.svg" alt="" />
-        {amout >= 1 && (
-          <span
-            className="text-xs bg-orange-600 text-white flex items-center justify-center p-2  size-4 rounded-full absolute -top-3
-           -right-2"
-          >
-            {amout}
-          </span>
-        )}
-      </button>
       <dialog id="my_modal_2" className="modal top-0">
         <div className="modal-box text-black rounded-md absolute top-16 right-24 w-80">
           <div className="flex  items-center justify-between">
@@ -52,7 +38,7 @@ function NovabrModal() {
               to="/chekout"
               className=" btn w-full  bg-[#D87D4A] border-none text-white uppercase rounded-none tracking-wider fontre px-10 hover:opacity-100 hover:bg-[#FBAF85]uppercase"
             >
-              {/* <Link to="/chekout">Chek</Link> */}Chekout
+              Chekout
             </Link>{" "}
           </form>
         </div>
@@ -60,8 +46,42 @@ function NovabrModal() {
           <button>close</button>
         </form>
       </dialog>
+
+      <button
+        className="bt bg-transparent border-none relative "
+        onClick={() => document.getElementById("my_modal_2").showModal()}
+      >
+        <img src="/assets/shared/desktop/icon-cart.svg" alt="" />
+        {amout >= 1 && (
+          <span
+            className="text-xs bg-orange-600 text-white flex items-center justify-center p-2  size-4 rounded-full absolute -top-3
+           -right-2"
+          >
+            {amout}
+          </span>
+        )}
+      </button>
+      <div className="modal" role="dialog" id="my_modal_8">
+        <dialog id="my_modal_2" className="modal">
+          <dialog id="my_modal_2" className="modal">
+            <div className="modal-box">
+              <h3 className="font-bold text-lg">Hello!</h3>
+              <p className="py-4">Press ESC key or click outside to close</p>
+            </div>
+            <form method="dialog" className="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+          <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      </div>
     </div>
   );
 }
 
+{
+  /* <Link to="/chekout">Chek</Link> */
+}
 export default NovabrModal;

@@ -11,9 +11,8 @@ function SingleProductHead() {
 
   return (
     <>
+    
       <div className="flex flex-col  gap-16 my-20">
-        <Link to="/">Go back</Link>
-
         {product &&
           product.map((headphones, id) => {
             let { image, name, description, slug, price } = headphones;

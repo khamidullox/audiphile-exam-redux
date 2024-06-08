@@ -4,14 +4,17 @@ import MainLayout from "./layout/MainLayout";
 import { Home } from "./pages";
 import SingleProduct from "./pages/SingleProduct";
 import Error from "./pages/Error";
+import Chekout from "./pages/Chekout";
+import Login from "./pages/Login";
 //components
 import { SinglePages } from "./components";
 //loader
 import { loader as pagesLoader } from "./components/SinglePages";
 import { loader as HomeLoader } from "./pages/Home";
 import { loader as SingleProductLaoder } from "./pages/SingleProduct";
-import Chekout from "./pages/Chekout";
-
+import { action as CheakoutLoader } from "./pages/Chekout";
+//action
+import { actionLogin } from "./pages/Login";
 function App() {
   let routers = createBrowserRouter([
     {
@@ -38,9 +41,11 @@ function App() {
         {
           path: "/chekout",
           element: <Chekout />,
+          action: CheakoutLoader,
         },
       ],
     },
+    { path: "/login", element: <Login />, action: actionLogin },
   ]);
   return <RouterProvider router={routers} />;
 }

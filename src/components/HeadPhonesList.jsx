@@ -6,7 +6,7 @@ function HeadPhonesList({ category }) {
     <div className="flex flex-col aligen-conatiner gap-16 my-20">
       {product.map((headphones, id) => {
         let { image, name, description, slug } = headphones;
-        console.log(product);
+
         return (
           <div
             key={id}

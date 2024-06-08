@@ -1,13 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { formatPrice } from "../utils/index";
+import { decrementAmout, incrementAmout } from "../app/ProductSlice";
 function Cart() {
-  const { products, price } = useSelector((state) => state.product);
+  const { products, price, chekout } = useSelector((state) => state.product);
+  let dispetch = useDispatch();
 
   return (
     <div className="">
-      {products.map((product) => {
+      {products.map((product, id) => {
+        console.log(product);
         return (
-          <div className="flex items-center justify-between gap-2 my-5 ">
+          <div
+            key={id}
+            className="flex items-center justify-between gap-2 my-5 "
+          >
             <div className="flex gap-2 items-center">
               <img
                 className="size-16 rounded-lg"
@@ -21,14 +27,29 @@ function Cart() {
                 </span>
               </div>
             </div>
-            {/* <div className=" flex items-center text-xs justify-center gap-5 bg-[#F1F1F1]  p-2 px-3">
-              <button className="hover:orange">-</button>
+            <div className=" flex items-center text-xs justify-center gap-5 bg-[#F1F1F1]  p-2 px-3">
+              <button
+                onClick={() => {
+                  dispetch(decrementAmout(product));
+                }}
+                className="hover:orange"
+              >
+                -
+              </button>
               {product.amout}
-              <button className="hover:orange">+</button>
-            </div> */}{" "}
-            <div className="text-lg font-b">
-              <p className=" opacity-70">{product.amout}x</p>
+              <button
+                onClick={() => {
+                  dispetch(incrementAmout(product));
+                  console.log(product.amout);
+                }}
+                className="hover:orange"
+              >
+                +
+              </button>
             </div>
+            {/* <div className="text-lg font-b">
+              <p className=" opacity-70">{product.amout}x</p>
+            </div> */}
           </div>
         );
       })}

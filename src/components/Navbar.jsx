@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import NovabrModal from "./NovabrModal";
 function Navbar() {
   return (
-    <header className="navbar bg-black text-white aligen-conatiner max-w-full h-24 border-b border-opacity-10 border-slate-700">
+    <header className="navbar bg-black text-white aligen-conatiner max-w-full h-24 border-b border-opacity-10 border-slate-700 -5">
       <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

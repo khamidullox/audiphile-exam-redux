@@ -4,6 +4,7 @@ import { customFetch } from "../utils";
 //pages
 import { ProdutcsListShop, HomeHeader, HomeSpeaker } from "../components";
 import HomeSpeakersZ from "../components/HomeSpeakersZ";
+import FooterAvatar from "../components/FooterAvatar";
 export let loader = async () => {
   let req = customFetch();
   let product = (await req).data.data;
@@ -16,6 +17,7 @@ function Home() {
       <ProdutcsListShop />
       <HomeSpeaker />
       <HomeSpeakersZ />
+      <FooterAvatar />
     </>
   );
 }

@@ -3,6 +3,7 @@ import Pagesheader from "./Pagesheader";
 import HeadPhonesList from "./HeadPhonesList";
 import { customFetch } from "../utils";
 import ProdutcsListShop from "./ProdutcsListShop";
+import FooterAvatar from "./FooterAvatar";
 export let loader = async ({ params }) => {
   let req = customFetch(`?category=${params.id}`);
   let product = (await req).data.data;
@@ -17,10 +18,11 @@ function SinglePages() {
         <Pagesheader name={params.id} />
         <HeadPhonesList />
         <ProdutcsListShop />
+        <FooterAvatar />
       </>
     );
-  }else{
-    return <h1>SALOM</h1>
+  } else {
+    return <h1>SALOM</h1>;
   }
 }
 
